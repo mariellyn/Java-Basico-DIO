@@ -1,3 +1,4 @@
+package edu.mariellyn.classes;
 
 public class BoletimEstudandil {
     public static void main(String[] args) {
