@@ -9,7 +9,7 @@ public class Contador {
         int parametroDois = terminal.nextInt();
 
         try {
-            // Chamando o método contendo a lógica de contagem
+            // Cha1mando o método contendo a lógica de contagem
             contar(parametroUm, parametroDois);
         } catch (ParametrosInvalidosException exception) {
             // Imprimir a mensagem: O segundo parâmetro deve ser maior que o primeiro
@@ -31,4 +31,3 @@ public class Contador {
         }
     }
 }
-10
