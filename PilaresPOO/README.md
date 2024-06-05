@@ -68,7 +68,7 @@ public class Main {
     }
 }
 
-Saída:
+# Saída:
 
 
 Album gerenciado por :John Doe
@@ -80,7 +80,7 @@ Número de cópias do album : -50
 
 O preço do álbum e número de cópias não podem ser valores negativos. Como podemos evitar essa situação? Aqui é onde usamos o encapsulamento.
 
-Exemplo com encapsulamento
+### Exemplo com encapsulamento
 
 public class Album {
     private String name;
@@ -169,7 +169,7 @@ public class Main {
 }
 
 
-Saída:
+### Saída:
 
 Album gerenciado por :John Doe
 Detalhes do album::::::::::
@@ -181,14 +181,14 @@ Número de cópias do album : 0
 
 Com o encapsulamento, impedimos nosso gerenciador de estoque de definir valores negativos, o que significa que temos o controle sobre as informações.
 
-Vantagens do encapsulamento em Java
+### Vantagens do encapsulamento em Java
 Podemos fazer uma classe somente leitura ou somente escrita: Para uma classe somente leitura, temos que informar apenas os métodos getters. Para uma classe somente escrita, devemos informar apenas os métodos setters.
 Controle sobre os dados: Podemos controlar os dados adicionando lógica nos métodos setters, assim como fizemos para evitar que o gerenciador de estoques definisse valores negativos nos exemplos acima.
 Proteção dos dados: Outras classes não podem acessar membros privados de uma classe diretamente.
 Herança
 Consideremos que a loja de discos que falamos anteriormente também venda filmes em Blu-ray.
 
-Exemplo de herança
+### Exemplo de herança
 
 public class Album {
     private String name;
@@ -250,14 +250,14 @@ public class Movie extends Album {
     }
 }
 
-Vantagens de se usar herança
+### Vantagens de se usar herança
 Reaproveitamento de código: As classes filhas herdam todos os membros de instância da classe pai.
 Flexibilidade: Mudar o código em um lugar é o suficiente.
 Polimorfismo: A sobrescrita de métodos requer um relacionamento "É UM".
 Abstração
 Abstração é o processo de esconder os detalhes de implementação e exibir apenas as funcionalidades para o usuário.
 
-Exemplo de classe abstrata
+### Exemplo de classe abstrata
 
 abstract class Shape {
     public abstract void draw();
@@ -277,15 +277,16 @@ public class Test {
 }
 
 
-Quando usar classes abstratas?
+### Quando usar classes abstratas?
 Para forçar subclasses a implementar métodos abstratos.
 Para impedir que existam objetos daquela classe.
 Para manter a referência à uma classe.
 Para manter código comum.
-Interfaces
+
+# Interfaces
 Uma interface é um template (ou uma "planta" de construção) de uma classe.
 
-Exemplo de interface
+###Exemplo de interface
 
 interface Drawable {
     void draw();
@@ -305,7 +306,7 @@ public class InterfaceChecker {
 }
 
 
-Vantagens das interfaces
+###Vantagens das interfaces
 Nos ajudam a utilizar herança múltipla no Java.
 Elas fornecem abstração.
 Elas fornecem baixo acoplamento entre as classes.
@@ -313,7 +314,8 @@ Diferença entre interface e classe abstrata
 Interfaces são implementadas enquanto classes abstratas são estendidas.
 Interfaces não podem conter métodos não implementados, enquanto classes abstratas podem.
 Interfaces podem conter apenas métodos e variáveis estáticos finais.
-Polimorfismo
+
+# Polimorfismo
 Existem dois tipos de polimorfismo em Java:
 
 Polimorfismo em tempo de compilação (sobrecarga de métodos)
@@ -321,7 +323,7 @@ Polimorfismo em tempo de execução (sobrescrita de métodos)
 Sobrecarga de método
 Sobrecarga de método é um conceito onde uma classe pode ter mais de um método com o mesmo nome, mas com diferentes assinaturas.
 
-Exemplo de sobrecarga de método
+### Exemplo de sobrecarga de método
 
 public class Adder {
     public static int add(int a, int b) {
@@ -339,10 +341,10 @@ public class TestOverloading {
     }
 }
 
-Sobrescrita de método
+### Sobrescrita de método
 A sobrescrita de método permite que uma classe filha forneça uma implementação específica de um método que já é fornecido por uma de suas classes ancestrais.
 
-Exemplo de sobrescrita de método
+### Exemplo de sobrescrita de método
 
 class Vehicle {
     void run() {
