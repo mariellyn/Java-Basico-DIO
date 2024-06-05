@@ -69,3 +69,54 @@ public class Cat {
     // Outros métodos...
 }
 
+
+### Criando Objetos da Classe Cat
+
+Agora que definimos um template de gatos, vamos dizer que temos dois gatos, chamados Thor e Rambo. Como podemos defini-los em nossos programas?
+
+Primeiro, precisamos criar dois objetos da classe `Cat`.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+       Cat thor = new Cat();
+       Cat rambo = new Cat();
+    }
+}
+
+### Agora, vamos definir seus estados e comportamentos.
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+       /*
+       Criando os objetos
+        */
+       Cat thor = new Cat();
+       Cat rambo = new Cat();
+
+       /*
+       Definindo o gato Thor
+        */
+       thor.name = "Thor";
+       thor.age = 3;
+       thor.breed = "Azul russo";
+       thor.color = "Marrom";
+
+       thor.sleep();
+
+       /*
+       Definindo o gato Rambo
+        */
+       rambo.name = "Rambo";
+       rambo.age = 4;
+       rambo.breed = "Maine Coon";
+       rambo.color = "Marrom";
+
+       rambo.play();
+    }
+
+}
+
+
