@@ -127,7 +127,8 @@ Como nos exemplos de código acima, podemos definir nossas classes, instanciá-l
 
 Até aqui já cobrimos o básico de orientação a objetos. Vamos avançar para os princípios da orientação a objetos.
 
-Princípios da programação orientada a objetos
+# Princípios da programação orientada a objetos
+
 Esses são os quatro princípios fundamentais do paradigma de programação orientada a objetos. Entendê-los é essencial para se tornar um programador de sucesso.
 
 Encapsulamento
@@ -136,7 +137,8 @@ Abstração
 Polimorfismo
 Agora, vamos dar uma olhada neles com mais detalhes.
 
-Encapsulamento
+#### Encapsulamento
+
 Encapsulamento é um processo de envolver dados e código em uma única unidade.
 
 É como uma capsula que possui uma mistura de diversos medicamentos, é uma técnica que ajuda a manter as variáveis de instância protegidas.
@@ -364,7 +366,7 @@ Controle sobre os dados: podemos controlar os dados adicionando lógica nos mét
 Proteção dos dados: outras classes não podem acessar membros privados de uma classe diretamente.
 
 
-Herança
+#### Herança
 
 Consideremos que a loja de discos que falamos anteriormente também venda filmes em Blu-ray.
 
@@ -401,7 +403,7 @@ Uma classe pode estender apenas uma classe. Entretanto, não há limite para a i
 
 ![alt text](image-5.png)
 
-Relacionamentos
+#### Relacionamentos
 I. Relacionamento É UM
 
 Um relacionamento É UM refere-se à herança ou implementação.
@@ -473,7 +475,7 @@ Agora, vamos voltar para nosso exemplo da loja de discos que discutimos acima.
 
 Podemos implementar esse diagrama em Java para evitar duplicação de código.
 
-Vantagens de se usar herança
+#### Vantagens de se usar herança
 
 Reaproveitamento de código: as classes filhas herdam todos os membros de instância da classe pai.
 Você tem mais flexibilidade de mudar o código: mudar o código em um lugar é o suficiente.
@@ -489,17 +491,17 @@ Em Java, podemos obter abstração de duas maneiras: classes abstratas (0% a 100
 
 A palavra-chave abstract pode ser aplicada à classes e métodos. abstract e final ou static nunca podem estar juntas.
 
-I. Classes abstratas
+#### I. Classes abstratas
 Uma classe é abstrata quando ela contém a palavra reservada abstract.
 
 Classes abstratas não podem ser instanciadas  (não é possível criar objetos de classes abstratas). Elas podem ter construtores, métodos estáticos e métodos finais.
 
-II. Métodos abstratos
+#### II. Métodos abstratos
 Um método é abstrato quando ele contém a palavra chave abstract.
 
 Um método abstrato não possui implementação (não possui um corpo e termina com ponto e virgula). Métodos abstratos não devem ser marcados como private.
 
-III. Classes abstratas e métodos abstratos
+#### III. Classes abstratas e métodos abstratos
 Se pelo menos um método for abstrato dentro de uma classe, então toda a classe deve ser abstrata.
 É possível ter uma classe abstrata sem nenhum método abstrato.
 Podemos ter qualquer quantidade de métodos abstratos e não abstratos ao mesmo tempo na mesma classe.
@@ -536,7 +538,7 @@ Para manter a referência à uma classe.
 Para manter código comum.
 
 
-Interface
+#### Interface
 
 
 Uma interface é um template (ou uma "planta" de construção) de uma classe.
@@ -586,12 +588,12 @@ public class InterfaceChecker {
 
 ![alt text](image-11.png)
 
-Métodos default e métodos estáticos nas Interfaces
+#### Métodos default e métodos estáticos nas Interfaces
 Normalmente, implementamos os métodos de uma interface em classes separadas. Digamos que seja necessário adicionar um novo método à interface. Então, deveremos implementar esse método em todas as outras classes que implementam essa interface também.
 
 Para evitar esse tipo de problema, a partir do Java, 8 foi introduzida a possibilidade de implementar métodos default e estáticos dentro de uma interface, além dos métodos abstratos.
 
-Método default
+#### Método default
 
 ```java
 public interface DefaultInterface {
@@ -610,15 +612,15 @@ public class InterfaceCheckers implements DefaultInterface{
         checker.sleep();
     }
 }
-```
+
 /*
 Saída:
 Estou correndo!
 Dormindo...
  */
+```
 
-
-Métodos estáticos
+#### Métodos estáticos
 Assim como métodos estáticos de classes, nós podemos chamá-los usando o nome da interface.
 
 ```java
@@ -638,14 +640,15 @@ public class InterfaceCheckers implements DefaultInterface{
         checker.sleep();
     }
 }
-```
+
 /*
 Saída:
 Estou correndo!
 Dormindo...
  */
+```
 
-Interface de marcação
+#### Interface de marcação
 São interfaces vazias. Por exemplo as interfaces Serializable, Cloneable e Remote.
 
 ```java
@@ -656,7 +659,7 @@ public interface Serializable
 
 ```
 
-Vantagens das interfaces
+#### Vantagens das interfaces
 
 Nos ajudam a utilizar herança múltipla no Java.
 Elas fornecem abstração.
@@ -671,7 +674,8 @@ Caso você queira definir métodos que podem ser necessários e código comum, u
 
 Caso queira apenas definir métodos necessários, use uma interface.
 
-Polimorfismo
+#### Polimorfismo
+
 Polimorfismo é a habilidade de um objeto de assumir diversas formas.
 
 Polimorfismo em POO acontece quando uma superclasse faz referência a um objeto de uma subclasse.
@@ -684,10 +688,11 @@ Uma variável de referência pode ter uma classe ou uma interface como tipo.
 
 Um único objeto pode ser referenciado por variáveis de referência de diversos tipos (desde que esses tipos estejam na mesma hierarquia), sendo o objeto do mesmo tipo da variável de referência ou de uma superclasse.
 
-Sobrecarga de métodos
+#### Sobrecarga de métodos
+
 Se uma classe possui vários métodos, que possuem o mesmo nome mas parâmetros diferentes, isso é conhecido como sobrecarga de métodos (method overload).
 
-Regras da sobrecarga de métodos:
+#### Regras da sobrecarga de métodos:
 
 Precisa ter uma lista de parâmetros diferente.
 Pode possuir tipos de retorno diferentes.
@@ -753,9 +758,9 @@ public class PolyTest {
 ```
 
 
-Regras a seguir para o polimorfismo
+#### Regras a seguir para o polimorfismo
 
-Regras de tempo de compilação
+#### Regras de tempo de compilação
 
 O compilador conhece apenas tipos de referência.
 Ele só pode procurar métodos em tipos de referência.
@@ -766,7 +771,7 @@ Deve corresponder a assinatura do método de tempo de compilação ao método na
 Sobrescrita de métodos
 Se uma subclasse tem o mesmo método que foi declarado na superclasse, isso é conhecido como sobrescrita de métodos (method override).
 
-Regras da sobrescrita de métodos:
+#### Regras da sobrescrita de métodos:
 
 Deve possuir a mesma lista de parâmetros.
 Deve possuir o mesmo tipo de retorno: embora um retorno covariante nos permita alterar o tipo de retorno do método sobrescrito.
@@ -802,7 +807,8 @@ Observação: métodos estáticos não podem ser sobrescritos porque métodos s�
 
 Observação: construtores podem ser sobrecarregados mas não podem ser sobrescritos.
 
-Tipos de objeto e tipos de referência
+#### Tipos de objeto e tipos de referência
+
 ```java
 class Person{
     void eat() {
