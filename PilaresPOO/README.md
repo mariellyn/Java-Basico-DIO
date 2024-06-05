@@ -1,364 +1,71 @@
-# Princípios da programação orientada a objetos
+### Princípios de Programação Orientada a Objetos
 
-Esses são os quatro princípios fundamentais do paradigma de programação orientada a objetos. Entendê-los é essencial para se tornar um programador de sucesso.
+A programação orientada a objetos é um paradigma de programação onde tudo é representado como um objeto.
 
-- Encapsulamento
-- Herança
-- Abstração
-- Polimorfismo
+Objetos passam mensagens uns para os outros. Cada objeto decide o que fazer com uma mensagem recebida. A POO (em inglês, OOP - Object Oriented Programming) foca nos estados e comportamentos de cada objeto.
 
-Agora, vamos dar uma olhada neles com mais detalhes.
+#### O que são objetos?
 
-## Encapsulamento
+Um objeto é uma entidade que possui estados e comportamentos.
 
-Encapsulamento é um processo de envolver dados e código em uma única unidade.
+Por exemplo, cão, gato e veículo. Para ilustrar, um cão possui estados como idade, cor, nome e comportamentos como comer, dormir e correr.
 
-É como uma cápsula que possui uma mistura de diversos medicamentos, é uma técnica que ajuda a manter as variáveis de instância protegidas.
+Os estados nos dizem como o objeto se parece ou quais propriedades ele possui.
 
-Essa proteção pode ser conquistada utilizando o modificador de acesso `private`, que indica que a variável ou dado não pode ser acessado de fora da classe. Para acessar estados privados de modo seguro, temos que providenciar métodos `getters` e `setters` públicos (em Java, esses métodos devem seguir os padrões de nomenclatura "JavaBeans").
+O comportamento nos diz o que o objeto faz.
 
-Digamos que existe uma loja de discos que vende álbuns de músicas de diferentes artistas e um estoque para o gerenciamento.
+Podemos representar um cão do mundo real em um programa como um objeto de software definindo seus estados e comportamentos.
 
-### Exemplo sem encapsulamento
+Objetos de software são uma representação de um objeto do mundo real. É alocado espaço em memória sempre que um objeto lógico é criado.
+
+Um objeto pode também ser referenciado como uma instância de uma classe. Instanciar uma classe significa a mesma coisa que criar um objeto.
+
+Algo importante de se lembrar quando estamos criando um objeto é: o tipo de referência deve ser do mesmo tipo ou um supertipo do tipo do objeto. Veremos o que é um tipo de referência mais a frente neste artigo.
+
+#### O que são classes?
+
+Uma classe é um template - algo como a "planta" de uma construção - a partir do qual os objetos são criados.
+
+Imagine uma classe como um cortador de biscoitos e os objetos como os próprios biscoitos.
+
+
+![alt text](image.png)
+
+### Classes, Variáveis de Instância e Métodos de Instância
+
+Classes definem estados como variáveis de instância e comportamentos como métodos de instância.
+
+Variáveis de instância também são conhecidas como "variáveis membro".
+
+Classes não consomem espaço em memória.
+
+### Exemplo: Classe Cat (Gato)
+
+Para exemplificar o conceito de classes e objetos, vamos criar uma classe `Cat` (Gato) que representa estados e comportamentos de um gato no mundo real.
 
 ```java
-public class Album {
-    public String name;
-    public String artist;
-    public double price;
-    public int numberOfCopies;
-    public void sellCopies(){
-        if(numberOfCopies > 0){
-            numberOfCopies--;
-            System.out.println("Um album foi vendido!");
-        }
-        else{
-            System.out.println("Não há álbuns disponíveis!");
-        }
-    }
-    public void orderCopies(int num){
-        numberOfCopies += num;
-    }
-}
-
-public class StockKeeper {
-    public String name;
-    public StockKeeper(String name){
-        this.name = name;
-    }
-    public void manageAlbum(Album album, String name, String artist, double price, int numberOfCopies){
-        album.name = name;
-        album.artist = artist;
-        album.price = price;
-        album.numberOfCopies = numberOfCopies;
-
-        System.out.println("Album gerenciado por :" + this.name);
-        System.out.println("Detalhes do album::::::::::");
-        System.out.println("Nome do album: " + album.name);
-        System.out.println("Artista do Album : " + album.artist);
-        System.out.println("Preço do Album : " + album.price);
-        System.out.println("Número de cópias do album : " + album.numberOfCopies);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-       StockKeeper johnDoe = new StockKeeper("John Doe");
-       johnDoe.manageAlbum(new Album(), "Slippery When Wet", "Bon Jovi", -1000.00, -50);
-    }
-}
-
-# Saída:
-
-
-Album gerenciado por :John Doe
-Detalhes do album::::::::::
-Nome do album : Slippery When Wet
-Artista do Album : Bon Jovi
-Preço do Album :  -1000.0
-Número de cópias do album : -50
-
-O preço do álbum e número de cópias não podem ser valores negativos. Como podemos evitar essa situação? Aqui é onde usamos o encapsulamento.
-
-### Exemplo com encapsulamento
-
-public class Album {
+public class Cat {
+    // Variáveis de instância
     private String name;
-    private String artist;
-    private double price;
-    private int numberOfCopies;
-    public void sellCopies(){
-        if(numberOfCopies > 0){
-            numberOfCopies--;
-            System.out.println("Um álbum foi vendido!");
-        }
-        else{
-            System.out.println("Nenhum álbum disponível!");
-        }
-    }
-    public void orderCopies(int num){
-        numberOfCopies += num;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
+    private int age;
+    private String color;
+
+    // Construtor
+    public Cat(String name, int age, String color) {
         this.name = name;
-    }
-    public String getArtist() {
-        return artist;
-    }
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        if(price > 0) {
-            this.price = price;
-        }
-        else {
-            this.price = 0.0;
-        }
-    }
-    public int getNumberOfCopies() {
-        return numberOfCopies;
-    }
-    public void setNumberOfCopies(int numberOfCopies) {
-        if(numberOfCopies > 0) {
-            this.numberOfCopies = numberOfCopies;
-        }
-        else {
-            this.numberOfCopies = 0;
-        }
-    }
-}
-
-public class StockKeeper {
-    private String name;
-    StockKeeper(String name){
-        setName(name);
-    }
-    public void manageAlbum(Album album, String name, String artist, double price, int numberOfCopies){
-        album.setName(name);
-        album.setArtist(artist);
-        album.setPrice(price);
-        album.setNumberOfCopies(numberOfCopies);
-
-        System.out.println("Album gerenciado por :"+ getName());
-        System.out.println("Detalhes do album::::::::::");
-        System.out.println("Nome do album : " + album.getName());
-        System.out.println("Artista do Album : " + album.getArtist());
-        System.out.println("Preço do Album : " + album.getPrice());
-        System.out.println("Número de cópias do album : " + album.getNumberOfCopies());
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        StockKeeper johnDoe = new StockKeeper("John Doe");
-        johnDoe.manageAlbum(new Album(), "Slippery When Wet", "Bon Jovi", -1000.00, -50);
-    }
-}
-
-
-### Saída:
-
-Album gerenciado por :John Doe
-Detalhes do album::::::::::
-Nome do album : Slippery When Wet
-Artista do Album : Bon Jovi
-Preço do Album : 0.0
-Número de cópias do album : 0
-
-
-Com o encapsulamento, impedimos nosso gerenciador de estoque de definir valores negativos, o que significa que temos o controle sobre as informações.
-
-### Vantagens do encapsulamento em Java
-Podemos fazer uma classe somente leitura ou somente escrita: Para uma classe somente leitura, temos que informar apenas os métodos getters. Para uma classe somente escrita, devemos informar apenas os métodos setters.
-Controle sobre os dados: Podemos controlar os dados adicionando lógica nos métodos setters, assim como fizemos para evitar que o gerenciador de estoques definisse valores negativos nos exemplos acima.
-Proteção dos dados: Outras classes não podem acessar membros privados de uma classe diretamente.
-Herança
-Consideremos que a loja de discos que falamos anteriormente também venda filmes em Blu-ray.
-
-### Exemplo de herança
-
-public class Album {
-    private String name;
-    private String artist;
-    private double price;
-    private int numberOfCopies;
-
-    public String getName() {
-        return name;
+        this.age = age;
+        this.color = color;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    // Métodos de instância
+    public void meow() {
+        System.out.println("O gato " + name + " está miando.");
     }
 
-    public String getArtist() {
-        return artist;
+    public void sleep() {
+        System.out.println("O gato " + name + " está dormindo.");
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getNumberOfCopies() {
-        return numberOfCopies;
-    }
-
-    public void setNumberOfCopies(int numberOfCopies) {
-        this.numberOfCopies = numberOfCopies;
-    }
-}
-
-public class Movie extends Album {
-    private String director;
-    private int duration;
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-}
-
-### Vantagens de se usar herança
-Reaproveitamento de código: As classes filhas herdam todos os membros de instância da classe pai.
-Flexibilidade: Mudar o código em um lugar é o suficiente.
-Polimorfismo: A sobrescrita de métodos requer um relacionamento "É UM".
-Abstração
-Abstração é o processo de esconder os detalhes de implementação e exibir apenas as funcionalidades para o usuário.
-
-### Exemplo de classe abstrata
-
-abstract class Shape {
-    public abstract void draw();
-}
-
-class Circle extends Shape {
-    public void draw() {
-        System.out.println("Círculo!");
-    }
-}
-
-public class Test {
-    public static void main(String[] args) {
-        Shape circle = new Circle();
-        circle.draw();
-    }
-}
-
-
-### Quando usar classes abstratas?
-Para forçar subclasses a implementar métodos abstratos.
-Para impedir que existam objetos daquela classe.
-Para manter a referência à uma classe.
-Para manter código comum.
-
-# Interfaces
-Uma interface é um template (ou uma "planta" de construção) de uma classe.
-
-###Exemplo de interface
-
-interface Drawable {
-    void draw();
-}
-
-class Circle implements Drawable {
-    public void draw() {
-        System.out.println("Círculo!");
-    }
-}
-
-public class InterfaceChecker {
-    public static void main(String[] args) {
-        Drawable circle = new Circle();
-        circle.draw();
-    }
-}
-
-
-###Vantagens das interfaces
-Nos ajudam a utilizar herança múltipla no Java.
-Elas fornecem abstração.
-Elas fornecem baixo acoplamento entre as classes.
-Diferença entre interface e classe abstrata
-Interfaces são implementadas enquanto classes abstratas são estendidas.
-Interfaces não podem conter métodos não implementados, enquanto classes abstratas podem.
-Interfaces podem conter apenas métodos e variáveis estáticos finais.
-
-# Polimorfismo
-Existem dois tipos de polimorfismo em Java:
-
-Polimorfismo em tempo de compilação (sobrecarga de métodos)
-Polimorfismo em tempo de execução (sobrescrita de métodos)
-Sobrecarga de método
-Sobrecarga de método é um conceito onde uma classe pode ter mais de um método com o mesmo nome, mas com diferentes assinaturas.
-
-### Exemplo de sobrecarga de método
-
-public class Adder {
-    public static int add(int a, int b) {
-        return a + b;
-    }
-    public static double add(double a, double b) {
-        return a + b;
-    }
-}
-
-public class TestOverloading {
-    public static void main(String[] args) {
-        System.out.println(Adder.add(11, 11));
-        System.out.println(Adder.add(12.3, 12.6));
-    }
-}
-
-### Sobrescrita de método
-A sobrescrita de método permite que uma classe filha forneça uma implementação específica de um método que já é fornecido por uma de suas classes ancestrais.
-
-### Exemplo de sobrescrita de método
-
-class Vehicle {
-    void run() {
-        System.out.println("Veículo está correndo");
-    }
-}
-
-class Bike extends Vehicle {
-    void run() {
-        System.out.println("Bike está correndo");
-    }
-    public static void main(String[] args) {
-        Bike bike = new Bike();
-        bike.run();
-    }
+    // Outros métodos...
 }
 
