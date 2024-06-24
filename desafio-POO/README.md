@@ -11,7 +11,7 @@
 <p>
 ✅ Conhecer a sintaxe da Java<br>
 ✅ Java JDK 11<br>
-✅ IDE para desenvolvimento Java (usarei IntelliJ)<br>
+✅ IDE para desenvolvimento Java <br>
 ✅ Git<br>
 ✅ Conta no GitHub<br>
 </p>
